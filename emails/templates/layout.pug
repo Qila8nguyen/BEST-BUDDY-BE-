@@ -1,0 +1,15 @@
+head
+    style(type='text/css')
+        include style.css
+body
+    div.content
+        div.header
+            img(src='https://cloudverse.s3.ap-southeast-1.amazonaws.com/static/cloudverse-logo-white.png' width='182' height='22')
+            h1.title #{title}
+        div.body
+            div !{body}
+            p Thanks for choosing CloudVerse MCP.
+            p - CloudVerse MCP Team
+        include footer.pug
+
+

@@ -1,0 +1,44 @@
+* {
+    font-family: Helvetica, Arial, sans-serif, Inter, Jost;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    margin: 0px;
+}
+
+div.content {
+    width: 595px;
+    margin: auto;
+}
+
+div.bg {
+    z-index: 0;
+}
+
+div.header {
+    padding: 18px 25px 30px 25px;
+    background-image: url('https://cloudverse.s3.ap-southeast-1.amazonaws.com/static/email-header.png');
+    height: 178px;
+}
+
+h1.title {
+    margin-top: 85px;
+}
+
+div.body {
+    padding: 15px 26px 15px 26px;
+}
+
+div.footer {
+    background: linear-gradient(95.99deg, #0A6B93 1.62%, #0A8EC4 100%);
+    padding: 12px 30px;
+    color: white;
+    display: flex;
+    gap: 7px;
+}

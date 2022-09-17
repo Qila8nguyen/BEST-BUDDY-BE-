@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  notification-db:
+    image: postgres:13
+    container_name: notification-db
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    env_file:
+      - .env
+    volumes:
+      - notification-db:/var/lib/postgresql/data
+
+  notification-mq:
+    image: rabbitmq:3-management
+    container_name: 'notification-mq'
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=${MQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${MQ_PASSWORD}
+    ports:
+      - ${MQ_PORT}:5672
+      - ${MQ_ADMIN_PORT}:15672
+    volumes:
+      - notification-mq:/var/lib/rabbitmq
+
+volumes:
+  notification-db:
+    name: nest-db
+  notification-mq:
+    name: notification-mq
