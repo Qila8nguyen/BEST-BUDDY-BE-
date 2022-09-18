@@ -8,7 +8,11 @@ datasource db {
 }
 
 model Notification {
-  id       Int    @unique @default(autoincrement())
-  userName String
-  message  String
+  id             Int      @unique @default(autoincrement())
+  userName       String
+  message        String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  subscriptionId String
+  manifestList   String[]
 }

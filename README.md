@@ -1,5 +1,3 @@
-# REST API Example
+# SheCodes
 
-## CAUTION
-
-1. Cannot get email from currentUser in create Notification Integration
+28-day manifesting self-improvement

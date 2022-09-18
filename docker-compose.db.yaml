@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  notification-db:
+  self-mood:
     image: postgres:13
-    container_name: notification-db
+    container_name: self-mood
     restart: always
     ports:
       - ${DB_PORT}:5432

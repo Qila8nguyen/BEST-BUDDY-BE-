@@ -5,17 +5,15 @@ import {
   RequestMethod,
 } from '@nestjs/common'
 import { AppController } from './app.controller'
-import { PrismaService } from './db/prisma/prisma.service'
 import { ConfigModule } from '@nestjs/config'
 import config from './common/config/config'
-import { PrismaModule } from 'nestjs-prisma'
-import { DBLoggerMiddleware } from './common/middleware/db.logger.middleware'
+import { PrismaModule, PrismaService } from 'nestjs-prisma'
 import { LoggerMiddleware } from './common/middleware/logger.middleware'
 import { NotificationModule } from './modules/notification/notification.module'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { GraphqlProvider } from './providers/graphql.provider'
-import { IntegrationModule } from './modules/integration/integration.module'
+import { ScheduleModule } from './modules/schedule/schedule.module'
 
 @Module({
   imports: [
@@ -26,16 +24,14 @@ import { IntegrationModule } from './modules/integration/integration.module'
     }),
     PrismaModule.forRoot({
       isGlobal: true,
-      prismaServiceOptions: {
-        middlewares: [DBLoggerMiddleware()], // configure your prisma middleware
-      },
+      prismaServiceOptions: {},
     }),
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
       driver: ApolloDriver,
       useClass: GraphqlProvider,
     }),
     NotificationModule,
-    IntegrationModule,
+    ScheduleModule,
   ],
   controllers: [AppController],
   providers: [PrismaService],

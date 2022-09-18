@@ -1,6 +1,7 @@
 import { createTransport, Transporter } from 'nodemailer'
 import * as EmailTemplate from 'email-templates'
 import { AbstractNotificationHandler } from './abstract.notification.handler'
+import { NotificationEntity } from '../modules/notification/entity/notification.entity'
 
 export class EmailHandler extends AbstractNotificationHandler {
   private transporter: Transporter
@@ -19,15 +20,16 @@ export class EmailHandler extends AbstractNotificationHandler {
     this.transporter = createTransport(emailClientOptions)
   }
 
-  async send(emailContext) {
-    const { recipients } = emailContext
+  async send(emailContext: any) {
+    const { recipients, message } = emailContext
 
     const { transporter } = this
     const emailTemplate = new EmailTemplate()
 
     const templateEmail = 'layout'
     const mailContext = {
-      ['firstName']: 'Nghi',
+      ['title']: 'Keep Manifesting',
+      ['body']: message,
     }
 
     const html = await emailTemplate.render(
