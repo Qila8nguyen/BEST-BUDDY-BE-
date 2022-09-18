@@ -1,4 +1,4 @@
-# SheCodes
+# SheCodes - BEST-BUDDY-BE
 
 28-day manifesting self-improvement
 
@@ -12,3 +12,4 @@ docker-compose up -f docker-compose.db.yaml up -d
 yarn install
 yarn start:local
 ```
+App port localhost:3535
